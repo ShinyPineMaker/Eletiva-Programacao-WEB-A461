@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
 <?php require "functions.php"; ?>
 
-=======
->>>>>>> Stashed changes
 <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -12,7 +9,6 @@
     <title>Document</title>
  </head>
  <body>
-<<<<<<< Updated upstream
     <form name="form[diferencahora]" action="Index.php" method="POST">
         <p>Calcular Diferença entre Horários: </p>
         <div>
@@ -23,18 +19,10 @@
             <label for="saida">Horário de Saída</label>
             <input type="number" name="hrsaida">
         </div>
-=======
-    <form name="form[diferencahora]" action="Index.php" method="POST" onsubmit="Diferenca()">
-        <label for="entrada">Horário de Entrada: </label>
-        <input type="number" name="entrada" id="hr_entrada">
-        <label for="saida">Horário de Saída</label>
-        <input type="number" name="saida" id="hr_saida">
->>>>>>> Stashed changes
         <input type="submit" value="enviar horário">
     </form>
     
     <?php
-<<<<<<< Updated upstream
         if (!empty($_POST['hrentrada']) and !empty($_POST['hrsaida'])){
             echo "<p>", Diferenca($_POST['hrentrada'], $_POST['hrsaida']), "</p>";
         }
@@ -102,12 +90,5 @@
         echo "<p>", DistribuirBonusAnual($_POST['lucros'], $_POST['escala']), "</p>";
     ?>
 
-=======
-        require "functions.php";
-        if ($_POST){
-            echo "wow";
-        }
-    ?>
->>>>>>> Stashed changes
  </body>
  </html>
