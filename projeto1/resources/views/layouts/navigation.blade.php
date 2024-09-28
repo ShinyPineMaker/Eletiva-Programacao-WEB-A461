@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
                         Contas
                     </x-nav-link>
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                        Categorias
+                    </x-nav-link>
                 </div>
             </div>
             @if (session('status'))

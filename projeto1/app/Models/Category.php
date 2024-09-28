@@ -10,6 +10,7 @@ use App\Models\Expense;
 class Category extends Model
 {
     use HasFactory;
+    protected $fillable = ['name'];
     
     public function expenses(): HasMany
     {

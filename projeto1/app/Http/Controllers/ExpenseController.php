@@ -14,36 +14,6 @@ class ExpenseController extends Controller
      */
     public function index(): View
     {
-        $expenses = [
-            [
-                'description' => fake()->word(),
-                'payment_date' => date("Y/m/d"),
-                'due_date' => date("Y/m/d"),
-                'amount' => '100',
-                'category' => 'Transporte',
-            ],
-            [
-                'description' => fake()->word(),
-                'payment_date' => date("Y/m/d"),
-                'due_date' => date("Y/m/d"),
-                'amount' => '100',
-                'category' => 'Transporte',
-            ],
-            [
-                'description' => fake()->word(),
-                'payment_date' => date("Y/m/d"),
-                'due_date' => date("Y/m/d"),
-                'amount' => '100',
-                'category' => 'Transporte',
-            ],
-            [
-                'description' => fake()->word(),
-                'payment_date' => date("Y/m/d"),
-                'due_date' => date("Y/m/d"),
-                'amount' => '100',
-                'category' => 'Transporte',
-            ],
-        ];
         $expenses = Expense::all();
         return view('expenses.index', compact('expenses'));
     }
