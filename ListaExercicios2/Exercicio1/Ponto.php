@@ -33,7 +33,15 @@ class Ponto{
         return self::$qtdObjetosCriados;
     }
 
-    public function CalcularDistancia(Ponto $alvo){
+    public function CalcularDistanciaPonto(Ponto $alvo){
         return sqrt((($alvo->x - $this->x) ** 2) + (($alvo->y - $this->y) ** 2));
+    }
+
+    public function CalcularDistanciaCoord($alvoX, $alvoY){
+        return sqrt((($alvoX - $this->x) ** 2) + (($alvoY - $this->y) ** 2));
+    }
+
+    public function CalcularDistancia($x1, $y1, $x2, $y2){
+        return sqrt((($x2 - $x1) ** 2) + (($y2 - $y1) ** 2));
     }
 }
