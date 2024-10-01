@@ -59,10 +59,10 @@
                                                 Editar
                                             </x-primary-button>
                                         </a>
-                                        <form method="post" action="{{ route('expenses.destroy', $expense->id) }}");" >
+                                        <form method="post" action="{{ route('expenses.destroy', $expense->id) }}" onsubmit = "return confirm('Deseja excluir essa Conta?')">
                                             @csrf
                                             @method('DELETE')
-                                            <x-primary-button type="submit" class="btn" name="button-1">
+                                            <x-primary-button type="submit" class="btn">
                                                 Deletar
                                             </x-primary-button>
                                         </form>
