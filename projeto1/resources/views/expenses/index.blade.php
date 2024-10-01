@@ -53,12 +53,15 @@
                                     <td class="px-6 py-4">{{$expense->due_date}}</td>
                                     <td class="px-6 py-4">{{$expense->amount}}</td>
                                     <td class="px-6 py-4">{{$expense->category->name}}</td>
+                                    
                                     <td class="px-6 py-4">
                                         <a href="{{route('expenses.edit', $expense->id)}}">
                                             <x-primary-button>
                                                 Editar
                                             </x-primary-button>
                                         </a>
+                                    </td>
+                                    <td class="px-6 py-4">
                                         <form method="post" action="{{ route('expenses.destroy', $expense->id) }}" onsubmit = "return confirm('Deseja excluir essa Conta?')">
                                             @csrf
                                             @method('DELETE')
@@ -69,7 +72,9 @@
                                     </td>
                                 </tr>
                             @empty
-                                Nao ha contas cadastradas
+                                <td class="px-6 py-4 font-medium text-white-900 whitespace-nowrap">
+                                    Não existem contas cadastradas
+                                </td>
                             @endforelse
                         </tbody>
                     </table>
