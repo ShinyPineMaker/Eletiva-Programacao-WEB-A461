@@ -109,8 +109,13 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Expense $expense)
+    public function destroy($expense)
     {
-        //
+        $query = Expense::find($expense);
+        if (!$query) {
+            return redirect()->route('expenses.index')->with('status', 'Conta Não Encontrada');
+        }
+        $query->delete();
+        return redirect()->route('expenses.index')->with('status', 'Conta Excluída!');
     }
 }

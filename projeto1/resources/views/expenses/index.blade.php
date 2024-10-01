@@ -59,6 +59,13 @@
                                                 Editar
                                             </x-primary-button>
                                         </a>
+                                        <form method="post" action="{{ route('expenses.destroy', $expense->id) }}");" >
+                                            @csrf
+                                            @method('DELETE')
+                                            <x-primary-button type="submit" class="btn" name="button-1">
+                                                Deletar
+                                            </x-primary-button>
+                                        </form>
                                     </td>
                                 </tr>
                             @empty
