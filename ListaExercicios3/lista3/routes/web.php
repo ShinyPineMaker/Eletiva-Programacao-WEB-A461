@@ -15,7 +15,7 @@ use app\Http\Controllers\listacontroller;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/exer1', [listacontroller::class, 'mostrarExer1']);
