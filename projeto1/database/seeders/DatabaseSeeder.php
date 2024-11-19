@@ -36,5 +36,11 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Impostos, juros e multa'
             ]
         ]);
+
+        DB::table('income_sources')->insert([
+            'description' => 'salário',
+            'monthly_income' => 1000,
+            'annual_income' => 12000
+        ]);
     }
 }
