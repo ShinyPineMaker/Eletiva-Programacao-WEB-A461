@@ -24,33 +24,42 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500">    
-                        @forelse ($categories as $category)
-                        <tr class="bg-white @if($loop->index < count($categories)) border-b @endif">
-                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{$category->name}}</td>
-                            
-                            <td class="px-6 py-4">
-                                <a href="{{route('categories.edit', $category->id)}}">
-                                    <x-primary-button>
-                                        Editar
-                                    </x-primary-button>
-                                </a>
-                            </td>
-                            <td class="px-6 py-4">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-300">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">Descrição</th>
+                                <th scope="col" class="px-6 py-3"></th>
+                                <th scope="col" class="px-6 py-3"></th>
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            @forelse ($categories as $category)
+                            <tr class="bg-white @if($loop->index < count($categories)) border-b @endif">
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{$category->name}}</td>
                                 
-                                <form method="post" action="{{ route('categories.destroy', $category->id) }}" onsubmit = "return confirm('Deseja excluir essa Conta?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <x-primary-button type="submit" class="btn">
-                                        Deletar
-                                    </x-primary-button>
-                                </form>
-                            </td>
-                        </tr> 
-                        
-                    @empty
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Nao ha categorias cadastradas</td>
-                    @endforelse               
+                                <td class="px-6 py-4">
+                                    <a href="{{route('categories.edit', $category->id)}}">
+                                        <x-primary-button>
+                                            Editar
+                                        </x-primary-button>
+                                    </a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    
+                                    <form method="post" action="{{ route('categories.destroy', $category->id) }}" onsubmit = "return confirm('Deseja excluir essa Conta?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <x-primary-button type="submit" class="btn">
+                                            Deletar
+                                        </x-primary-button>
+                                    </form>
+                                </td>
+                            </tr> 
+                            
+                        @empty
+                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Nao ha categorias cadastradas</td>
+                        @endforelse               
+                        </tbody>
                     </table>
                 </div>
             </div>

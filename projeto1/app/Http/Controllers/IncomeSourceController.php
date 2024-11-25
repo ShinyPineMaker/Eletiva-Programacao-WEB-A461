@@ -72,7 +72,7 @@ class IncomeSourceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(IncomeSource $incomeSource)
+    public function destroy($incomeSource)
     {
         $query = IncomeSource::find($incomeSource);
         if (!$query) {

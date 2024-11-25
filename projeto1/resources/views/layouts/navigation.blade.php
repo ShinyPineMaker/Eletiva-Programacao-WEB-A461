@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                         Categorias
                     </x-nav-link>
+                    <x-nav-link :href="route('incomesources.index')" :active="request()->routeIs('incomesources.index')">
+                        Fontes de Renda
+                    </x-nav-link>
                 </div>
             </div>
             @if (session('status'))

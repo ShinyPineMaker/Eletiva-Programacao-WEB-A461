@@ -28,7 +28,7 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-300">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    Descricao
+                                    Descrição
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Pago em
@@ -56,12 +56,10 @@
                                     
                                     <td class="px-6 py-4">
                                         <a href="{{route('expenses.edit', $expense->id)}}">
-                                            <x-primary-button>
+                                            <x-primary-button style="margin: 1vh 0vh">
                                                 Editar
                                             </x-primary-button>
                                         </a>
-                                    </td>
-                                    <td class="px-6 py-4">
                                         <form method="post" action="{{ route('expenses.destroy', $expense->id) }}" onsubmit = "return confirm('Deseja excluir essa Conta?')">
                                             @csrf
                                             @method('DELETE')

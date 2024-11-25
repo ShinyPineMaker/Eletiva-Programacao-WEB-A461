@@ -64,8 +64,13 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($category)
     {
-        //
+        $query = Category::find($category);
+        if (!$query) {
+            return redirect()->route('categories.index')->with('status', 'Categoria Não Encontrada');
+        }
+        $query->delete();
+        return redirect()->route('categories.index')->with('status', 'Categoria Excluída!');
     }
 }
