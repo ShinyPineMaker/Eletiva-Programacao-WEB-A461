@@ -22,7 +22,7 @@ class IncomeSourceController extends Controller
      */
     public function create()
     {
-        return view('incomesources.edit');
+        return view('incomesources.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class IncomeSourceController extends Controller
             'monthly_income' => 'required',
             'annual_income' => 'required'
         ]);
-        $incomeSource = IncomeSource::create($request->all());
+        $incomesource = IncomeSource::create($request->all());
         return redirect()->route('incomesources.index')->with('status', 'Fonte de Renda criada!');
     }
 
@@ -50,22 +50,25 @@ class IncomeSourceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(IncomeSource $incomeSource)
+    public function edit($incomeSource)
     {
-        return view('incomesources.edit', compact('incomeSource'));
+        $incomesource = IncomeSource::findOrFail($incomeSource);
+        return view('incomesources.edit', compact('incomesource'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, IncomeSource $incomeSource)
+    public function update(Request $request, $incomeSource)
     {
+        
         $request -> validate([
             'description' => 'required',
             'monthly_income' => 'required',
             'annual_income' => 'required'
         ]);
-        $incomeSource->update($request->all());
+        $incomesource = IncomeSource::findOrFail($incomeSource);
+        $incomesource->update($request->all());
         return redirect()->route('incomesources.index')->with('status', 'Fonte de Renda atualizada!');
     }
 

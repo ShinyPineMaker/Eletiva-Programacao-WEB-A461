@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('incomesources.index')" :active="request()->routeIs('incomesources.index')">
                         Fontes de Renda
                     </x-nav-link>
+                    <x-nav-link :href="route('expenses.chartview')" :active="request()->routeIs('expenses.chartview')">
+                        Google Chart
+                    </x-nav-link>
                 </div>
             </div>
             @if (session('status'))

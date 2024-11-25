@@ -39,8 +39,8 @@ class DatabaseSeeder extends Seeder
 
         DB::table('income_sources')->insert([
             'description' => 'salário',
-            'monthly_income' => 1000,
-            'annual_income' => 12000
+            'monthly_income' => 2000,
+            'annual_income' => 24000
         ]);
     }
 }

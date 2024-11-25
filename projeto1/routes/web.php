@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('incomesources', IncomeSourceController::class);
+    Route::get('/expenses/chartview', [ExpenseController::class, 'chartView'])->name('expenses.chartview');
     Route::resource('expenses', ExpenseController::class);
     Route::resource('categories', CategoryController::class);
 });

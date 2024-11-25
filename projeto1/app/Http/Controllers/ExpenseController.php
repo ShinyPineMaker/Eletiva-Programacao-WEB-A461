@@ -62,7 +62,7 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $request -> validate([
             'description' => 'required',
             'payment_date' => 'required|date',
             'due_date' => 'required|date',
@@ -117,5 +117,26 @@ class ExpenseController extends Controller
         }
         $query->delete();
         return redirect()->route('expenses.index')->with('status', 'Conta Excluída!');
+    }
+
+    public function chartView() {
+        $categories = Category::all();
+        $categoriesLabels = $categories->pluck('name');
+        $dataCount = [];
+        foreach($categories as $category) {
+            $dataCount[] = $category->expenses()->count();
+        }
+
+        $chartData = [ "labels" => $categoriesLabels,
+            "datasets" => [
+                [
+                "label" => 'Quantidade de Contas',
+                "data" => $dataCount,
+                "borderWidth" => 1
+                ]
+            ]
+        ];
+        $chartData = json_encode($chartData, JSON_HEX_QUOT);
+        return view('expenses.chartview', compact('chartData'));
     }
 }
